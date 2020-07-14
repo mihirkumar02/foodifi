@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Food Delivery | Manage Mobile Application</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <script src="https://kit.fontawesome.com/b2208ecd95.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/primary.css">
+</head>
+
+<body class="loginPage">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="./logout.html"><img src="../img/logo.png" alt="Foodifi.in"></a>
+        </div>
+        <div class="formbox" id="notLoggedIn">
+            <div class="card-body login-card-body">
+                <div class="card-body login-card-body">
+                    <div class="centered"><h5>Forgot Password</h5></div>
+                    <form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            </div>
+                            <input type="email" class="form-control " name="forgot-email" placeholder="Enter Email Address.."
+                                aria-label="Email Address" id="forgot-email">
+                            <small class="mt-2">A password reset mail will be sent on this email ID.</small>
+                        </div>
+
+                        <div class="text-center mb-2">
+                            <button onclick="forgot()" class="btn btn-success" type="button">Reset Password</button>
+                        </div>
+                    </form>
+
+                    <p class="mb-1 text-center">
+                        <a class="remember" href="../index.html">Login instead</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.login-box -->
+
+
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+    
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCHXsGkm61Hmk_yLYw5txSPfee_fGiDMDc",
+        authDomain: "foodifi-493e8.firebaseapp.com",
+        databaseURL: "https://foodifi-493e8.firebaseio.com",
+        projectId: "foodifi-493e8",
+        storageBucket: "foodifi-493e8.appspot.com",
+        messagingSenderId: "328551440601",
+        appId: "1:328551440601:web:bc63a7adac54055c3b5ec8",
+        measurementId: "G-LD70NEE6G7"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+<script src="../js/forgot.js"></script>
+</body>
+
+</html>
