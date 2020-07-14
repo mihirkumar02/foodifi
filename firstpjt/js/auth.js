@@ -5,7 +5,7 @@ firebase.auth.Auth.Persistence.SESSION;
 firebase.auth().onAuthStateChanged(function(user) {
     if(user) {
         window.user = user;
-        window.location.href = "../public/welcome.html";
+        window.location.href = "./public/welcome.html";
     } 
 });
 
