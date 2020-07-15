@@ -219,7 +219,7 @@ new Chart(totalordersChart, {
                 },
                 scaleLabel:{
                     display: true,
-                    labelString: 'Total Orders',
+                    labelString: 'Number of Orders',
                     fontColor: 'black',
                 },
                 ticks: {
