@@ -1,5 +1,5 @@
 // Your web app's Firebase configuration
-  var firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyCHXsGkm61Hmk_yLYw5txSPfee_fGiDMDc",
     authDomain: "foodifi-493e8.firebaseapp.com",
     databaseURL: "https://foodifi-493e8.firebaseio.com",
@@ -13,16 +13,16 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
-  //Reference contactUs collection
-let messagesRef = firebase.database().ref('ContactUs');
+//Reference contactUs collection
+let messagesRef = firebase.database().ref('Contact-Us');
 
 //listen to form
 document.getElementById('contactform').addEventListener('submit', submitForm);
 
-function submitForm(e){
+function submitForm(e) {
     e.preventDefault();
 
-//     // get Values
+    //     // get Values
     let name = getInputVal('name');
     let email = getInputVal('email');
     let message = getInputVal('message');
@@ -36,16 +36,16 @@ function submitForm(e){
 }
 //function to get form values
 
-function getInputVal(id){
+function getInputVal(id) {
     return document.getElementById(id).value;
 }
 
 //save message to firebase
-function saveMessage(name, email, message){
+function saveMessage(name, email, message) {
     let newMessageRef = messagesRef.push();
     newMessageRef.set({
-        name: name,
-        email: email,
-        message: message
+        Name: name,
+        eMail: email,
+        Message: message
     })
 }
