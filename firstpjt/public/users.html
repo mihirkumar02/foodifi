@@ -118,6 +118,9 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                    <a class="nav-link "><i class="fa fa-inbox" data-toggle='modal' data-target='#linkModal1'></i></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link "><i class="fa fa-bell" data-toggle='modal' data-target='#linkModal'></i></a>
                 </li>
                 <li class="nav-item dropdown">
@@ -308,6 +311,25 @@
                     </div>
                 </div>
 
+                <div id="linkModal1" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h3>
+                                    <center>Messages<center>
+                                </h3>
+                                <ol class="list-group" id="messages">
+                                    
+                                </ol>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="notModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
@@ -432,6 +454,7 @@
     <script src="../js/notification.js"></script>
 
     <script src="../js/logout.js"></script>
+    <script src="../js/customerMessages.js"></script>
 </body>
 
 </html>
