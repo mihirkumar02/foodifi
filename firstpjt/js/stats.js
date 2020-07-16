@@ -11,9 +11,15 @@ var earningsChart = document.getElementById("earnings-chart");
 var earningsCount = document.getElementById("earnings-count");
  
 
+var totalordersChart = document.getElementById("totalorders-chart");
+var totalordersCount = document.getElementById("totalorders-count");
+
+
+
 var users = 0;
 var vendors = 0;
 var earnings=0;
+var totalorders=0;
 
 db.collection("customer_collection").get().then(function(querySnapshot){
     querySnapshot.forEach(function(doc){
