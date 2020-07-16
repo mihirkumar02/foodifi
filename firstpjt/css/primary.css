@@ -126,3 +126,9 @@ footer a:not(.btn):hover,
 .listimage{
     width: 40%;
 }
+
+#messages li{
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 20px;
+}
