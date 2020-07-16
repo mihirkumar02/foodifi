@@ -39,7 +39,9 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-
+                 <li class="nav-item">
+                    <a class="nav-link "><i class="fa fa-inbox" data-toggle='modal' data-target='#linkModal1'></i></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link "><i class="fa fa-bell" data-toggle='modal' data-target='#linkModal'></i></a>
                 </li>
@@ -302,6 +304,24 @@
                         </div>
                     </div>
                 </div>
+                <div id="linkModal1" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h3>
+                                    <center>Messages<center>
+                                </h3>
+                                <ol class="list-group" id="messages">
+                                    
+                                </ol>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div id="notModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -432,6 +452,25 @@
     <script type="text/javascript" src="../js/querys.js"></script>
     <script type="text/javascript" src="../js/chart.js"></script>
     <script type="text/javascript" src="../js/logout.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCHXsGkm61Hmk_yLYw5txSPfee_fGiDMDc",
+            authDomain: "foodifi-493e8.firebaseapp.com",
+            databaseURL: "https://foodifi-493e8.firebaseio.com",
+            projectId: "foodifi-493e8",
+            storageBucket: "foodifi-493e8.appspot.com",
+            messagingSenderId: "328551440601",
+            appId: "1:328551440601:web:9a84de1b23ee84403b5ec8",
+            measurementId: "G-DHPTH3J7N4"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+    </script>
+
+    <script src="../js/customerMessages.js"></script>
 </body>
 
 </html>
