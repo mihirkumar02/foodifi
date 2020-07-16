@@ -23,7 +23,6 @@ function Delete(){
         });
         db.collection('subscription_notification').doc(subId).delete();
         window.alert("Vendor removed successfully!");
+        setTimeout(() => {location.reload();}, 2000);
     });
-
-    setTimeout(() => {location.reload();}, 2000);
   }
