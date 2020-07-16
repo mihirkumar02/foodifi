@@ -25,21 +25,53 @@ db.collection('subscription_notification').get().then(function(querySnapshot) {
     });
 });
 
-function activate(){
-
-var email=document.getElementById("inputEmail").value;
-db.collection('subscription_notification').get().then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-        if(doc.data().vendorEmail === email){
+function activate() {
+    var email = document.getElementById("inputEmail").value;
+    db.collection("subscription_notification")
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          if (doc.data().vendorEmail === email) {
             var docId = doc.id;
-    db.collection('subscription_notification').doc(docId).update({ status: "active" }).then(function(){
-    window.alert("Update successful");
-})
-.catch(err => window.alert("Error: " + err.message));
-        }
-    });
-});
+            db.collection("subscription_notification")
+              .doc(docId)
+              .update({ status: "active" })
+              .then(async function () {
+                window.alert("Update successful");
+                var StartDate = new Date();
+                var d = new Date();
+                var EndDate = new Date(
+                  d.getFullYear(),
+                  d.getMonth(),
+                  d.getDate() + 364,
+                  d.getHours(),
+                  d.getMinutes(),
+                  d.getMilliseconds()
+                );
+                var vendorData = await db
+                  .collection("tiffen_service_details")
+                  .doc(doc.data().vendorEmail)
+                  .get();
+                if (vendorData.SubscriptionStartDate == null) {
+                  db.collection("tiffen_service_details")
+                    .doc(doc.data().vendorEmail)
+                    .update({
+                      SubscriptionStartDate: StartDate.toISOString(),
+                      SubscriptionEndDate: EndDate.toISOString(),
+                    });
+                } else {
+                  db.collection("tiffen_service_details")
+                    .doc(doc.data().vendorEmail)
+                    .update({ SubscriptionEndDate: EndDate.toISOString() });
+                }
+              })
+              .catch((err) => window.alert("Error: " + err.message));
+          }
+        });
+      });
+setTimeout(() => {location.reload();}, 3000);
 }
+
 function reject(){
     var email=document.getElementById("email").value;
     db.collection('subscription_notification').get().then(function(querySnapshot) {
@@ -53,4 +85,6 @@ function reject(){
             }
         });
     });
+
+    setTimeout(() => {location.reload();}, 3000);
 }

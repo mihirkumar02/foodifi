@@ -36,3 +36,14 @@ function getvendor(){
       });
   });
   
+
+
+function Delete(){
+  admin.auth().deleteUser(uid)
+  .then(function() {
+    console.log('Successfully deleted user');
+  })
+  .catch(function(error) {
+    console.log('Error deleting user:', error);
+  });
+}
