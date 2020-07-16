@@ -1,4 +1,4 @@
-var db = firebase.firestore();
+const db = firebase.firestore();
 
 function getu(){
     document.getElementById("svendors").style.display = "none";
@@ -37,13 +37,3 @@ function getvendor(){
   });
   
 
-
-function Delete(){
-  admin.auth().deleteUser(uid)
-  .then(function() {
-    console.log('Successfully deleted user');
-  })
-  .catch(function(error) {
-    console.log('Error deleting user:', error);
-  });
-}
