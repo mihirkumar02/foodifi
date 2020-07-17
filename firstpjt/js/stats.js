@@ -129,58 +129,60 @@ db.collection("tiffen_service_details").get().then(function(querySnapshot){
 });
 
 
-db.collection("tiffen_service_details/saibhavadeesh@gmail.com/acceptedOrders").get().then(function(querySnapshot){
+db.collection("tiffen_service_details").get().then(function(querySnapshot){
     querySnapshot.forEach(function(doc){
-        earnings += doc.data().totalCost;
-    });
-    earningsCount.innerHTML += "<h4><b>" + earnings + "</b></h4>";
+        db.collection("tiffen_service_details/" + doc.id + "/acceptedOrders").get().then(function(snap){
+            snap.forEach(function(innerDoc){
+                earnings += innerDoc.data().totalCost;
+            });
+            earningsCount.innerHTML += "<h4><b>" + earnings + "</b></h4>";
 
-
-    
-    var data = [earnings];
-    var labels = ['JUN']
-    new Chart(earningsChart, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    backgroundColor: '#00bb00',
-                    borderColor: '#00bb00',
-                    data: data
-                }
-            ]
-        },
-        options: {
-            maintainAspectRatio: false,
-            legend: {
-                display: false
-            },
-            hover:{
-                mode: 'index',
-                intersect: true
-            },
-            scales:{
-                yAxes: [{
-                    gridLines: {
-                        display: true,
-                        lineWidth: '4px',
-                        color: 'rgba(0, 0, 0, 0.2)',
-                        zeroLineColor: 'transparent'
+            var data = [earnings];
+            var labels = ['JUN']
+            new Chart(earningsChart, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            backgroundColor: '#00bb00',
+                            borderColor: '#00bb00',
+                            data: data
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
                     },
-                    scaleLabel:{
-                        display: true,
-                        labelString: 'Total Earnings',
-                        fontColor: 'black',
+                    hover:{
+                        mode: 'index',
+                        intersect: true
                     },
-                    ticks: {
-                        beginAtZero: false,
-                        stepSize: 5
+                    scales:{
+                        yAxes: [{
+                            gridLines: {
+                                display: true,
+                                lineWidth: '4px',
+                                color: 'rgba(0, 0, 0, 0.2)',
+                                zeroLineColor: 'transparent'
+                            },
+                            scaleLabel:{
+                                display: true,
+                                labelString: 'Total Earnings',
+                                fontColor: 'black',
+                            },
+                            ticks: {
+                                beginAtZero: false,
+                                stepSize: 5
+                            }
+                        }]
                     }
-                }]
-            }
-            
-        }
+                    
+                }
+            });
+        });
     });
 });
 
